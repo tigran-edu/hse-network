@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<lab name="homework" version="1" scripttimeout="300" lock="0">
+  <topology>
+    <nodes>
+      <node id="1" name="vIOS" type="qemu" template="vios" image="vios-159-3" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="4" uuid="1d69c918-9a5f-4260-8304-3f839fd02e60" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc -cpu host" qemu_version="2.4.0" qemu_arch="x86_64" delay="0" icon="Router-2D-Gen-White-S.svg" config="0" left="774" top="6">
+        <interface id="0" name="Gi0/0" type="ethernet" network_id="1"/>
+      </node>
+      <node id="2" name="Switch2" type="qemu" template="viosl2" image="viosl2-2019" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="8" uuid="1ea1d0fc-2883-4a30-9cae-a69101aa68fb" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc -cpu host" qemu_version="2.4.0" qemu_arch="x86_64" delay="0" icon="Switch-2D-L3-Generic-S.svg" config="0" left="897" top="279">
+        <interface id="0" name="Gi0/0" type="ethernet" network_id="3"/>
+        <interface id="1" name="Gi0/1" type="ethernet" network_id="4"/>
+        <interface id="2" name="Gi0/2" type="ethernet" network_id="5"/>
+      </node>
+      <node id="3" name="Switch1" type="qemu" template="viosl2" image="viosl2-2019" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="8" uuid="91a14a23-4bf8-4cd6-956c-2dfbfcb5c02e" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc -cpu host" qemu_version="2.4.0" qemu_arch="x86_64" delay="0" icon="Switch-2D-L3-Generic-S.svg" config="0" left="681" top="276">
+        <interface id="0" name="Gi0/0" type="ethernet" network_id="2"/>
+        <interface id="1" name="Gi0/1" type="ethernet" network_id="4"/>
+        <interface id="2" name="Gi0/2" type="ethernet" network_id="6"/>
+      </node>
+      <node id="4" name="SwitchMain" type="qemu" template="viosl2" image="viosl2-2019" console="telnet" cpu="1" cpulimit="0" ram="1024" ethernet="8" uuid="bde77d8e-d257-4105-830b-69bf85dab6b5" qemu_options="-machine type=pc,accel=kvm -serial mon:stdio -nographic -no-user-config -nodefaults -rtc base=utc -cpu host" qemu_version="2.4.0" qemu_arch="x86_64" delay="0" icon="Switch-2D-L3-Generic-S.svg" config="0" left="774" top="105">
+        <interface id="0" name="Gi0/0" type="ethernet" network_id="1"/>
+        <interface id="1" name="Gi0/1" type="ethernet" network_id="2"/>
+        <interface id="2" name="Gi0/2" type="ethernet" network_id="3"/>
+      </node>
+      <node id="5" name="VPC1" type="vpcs" template="vpcs" image="" ethernet="1" delay="0" icon="PC-2D-Desktop-Generic-S.svg" config="0" left="681" top="495">
+        <interface id="0" name="eth0" type="ethernet" network_id="6"/>
+      </node>
+      <node id="6" name="VPC2" type="vpcs" template="vpcs" image="" ethernet="1" delay="0" icon="PC-2D-Desktop-Generic-S.svg" config="0" left="897" top="492">
+        <interface id="0" name="eth0" type="ethernet" network_id="5"/>
+      </node>
+    </nodes>
+    <networks>
+      <network id="1" type="bridge" name="Net-vIOSiface_0" left="312" top="384" visibility="0" icon="lan.png"/>
+      <network id="2" type="bridge" name="Net-SwitchMainiface_1" left="735" top="296" visibility="0" icon="lan.png"/>
+      <network id="3" type="bridge" name="Net-SwitchMainiface_2" left="735" top="370" visibility="0" icon="lan.png"/>
+      <network id="4" type="bridge" name="Net-Switch2iface_1" left="482" top="188" visibility="0" icon="lan.png"/>
+      <network id="5" type="bridge" name="Net-Switch2iface_2" left="463" top="313" visibility="0" icon="lan.png"/>
+      <network id="6" type="bridge" name="Net-Switch1iface_2" left="442" top="378" visibility="0" icon="lan.png"/>
+    </networks>
+  </topology>
+</lab>
